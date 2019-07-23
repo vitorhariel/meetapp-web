@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-export const Container = styled.div`
+export const Wrapper = styled.div`
   height: 100%;
   background: linear-gradient(-90deg, #141e30, #243b55);
   display: flex;

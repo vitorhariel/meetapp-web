@@ -6,9 +6,9 @@ Base:
   ✔ Configurar o reactotron @done(19-07-23 01:03)
 
 Funcionalidades:
-   ☐ Auth
+   ✔ Auth @done(19-07-23 19:05)
     O usuario deve poder se autenticar utilizando e-mail e senha.
-   ☐ Cadastro
+   ✔ Cadastro @done(19-07-23 19:05)
     O usuario deve poder se cadastrar com nome, e-mail e senha
    ☐ Dashboard
     O usuário deve poder listar os meetups que organiza e clicar para ver detalhes de um meetup.
