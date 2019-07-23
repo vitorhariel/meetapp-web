@@ -19,6 +19,10 @@ export const Content = styled.div`
     flex-direction: column;
   }
 
+  img {
+    margin-bottom: 30px;
+  }
+
   input {
     margin: 5px 0;
     padding: 15px;
@@ -42,13 +46,13 @@ export const Content = styled.div`
     padding: 15px;
     border: 0;
     border-radius: 4px;
-    background: #3b9eff;
+    background: #f94d6a;
     font-size: 16px;
     color: #fff;
     transition: background 0.2s;
 
     &:hover {
-      background: ${darken(0.04, '#3b9eff')};
+      background: ${darken(0.04, '#F94D6A')};
     }
   }
 

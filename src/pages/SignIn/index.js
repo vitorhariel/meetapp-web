@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
+import logo from '../../assets/M.svg';
+
 import { Container, Content } from './styles';
 
 export default function SignIn() {
@@ -20,6 +22,7 @@ export default function SignIn() {
   return (
     <Container>
       <Content>
+        <img src={logo} alt="Meetapp" />
         <Form onSubmit={handleSubmit} schema={schema}>
           <Input type="email" name="email" placeholder="Your e-mail" />
           <Input type="password" name="password" placeholder="Your password" />

@@ -14,6 +14,10 @@ export const Content = styled.div`
   max-width: 320px;
   text-align: center;
 
+  img {
+    margin-bottom: 30px;
+  }
+
   form {
     display: flex;
     flex-direction: column;
@@ -42,13 +46,13 @@ export const Content = styled.div`
     padding: 15px;
     border: 0;
     border-radius: 4px;
-    background: #3b9eff;
+    background: #f94d6a;
     font-size: 16px;
     color: #fff;
     transition: background 0.2s;
 
     &:hover {
-      background: ${darken(0.04, '#3b9eff')};
+      background: ${darken(0.04, '#F94D6A')};
     }
   }
 
