@@ -4,4 +4,5 @@ if (process.env.NODE_ENV === 'development') {
   const tron = Reactotron.configure().connect();
 
   console.tron = tron;
+  tron.clear();
 }

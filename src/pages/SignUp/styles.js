@@ -24,12 +24,17 @@ export const Content = styled.div`
     padding: 15px;
     border: 0;
     border-radius: 4px;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.2);
     color: #fff;
 
     &::placeholder {
       color: rgba(255, 255, 255, 0.4);
     }
+  }
+
+  span {
+    color: #f42c3b;
+    text-align: left;
   }
 
   button {
