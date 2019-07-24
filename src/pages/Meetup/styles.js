@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
@@ -14,6 +14,15 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    ${props =>
+      props.loading === 1 &&
+      css`
+        justify-content: center;
+        width: 100%;
+        height: 200px;
+        margin: auto;
+      `}
 
     aside {
       display: flex;
@@ -74,4 +83,6 @@ export const BannerImage = styled.img`
   margin-top: 30px;
   width: 100%;
   height: 300px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
 `;

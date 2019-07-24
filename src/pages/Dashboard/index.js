@@ -34,7 +34,7 @@ export default function Dashboard() {
     <Container>
       <div>
         <h1>My meetups</h1>
-        <button type="button">
+        <button type="button" onClick={() => history.push('/manage/new')}>
           <MdAddCircleOutline size={24} /> New meetup
         </button>
       </div>
@@ -48,7 +48,7 @@ export default function Dashboard() {
                 type="button"
                 key={meetup.id}
                 onClick={() =>
-                  history.push(`/details/${meetup.id}`, { state: 'a' })
+                  history.push(`/meetup/${meetup.id}`, { state: 'a' })
                 }
               >
                 <strong>{meetup.title}</strong>
@@ -59,7 +59,7 @@ export default function Dashboard() {
             ))
           ) : (
             <div>
-              <img src={blank} alt="Blank" />
+              <img src={blank} alt="Blank" draggable="false" />
               <strong>You don't have any meetup</strong>
               <p>Why don't you create one?</p>
             </div>

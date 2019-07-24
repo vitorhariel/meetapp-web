@@ -20,7 +20,7 @@ Funcionalidades:
     O usuário deve poder cadastrar ou editar informações de meetups que organiza.
     Exiba a preview de imagem de banner do meetup quando o usuário selecionar uma imagem.
     Utilize validação nos campos.
-   ☐ Perfil
+   ✔ Perfil @done(19-07-24 12:59)
     O usuário deve poder editar suas informações de cadastro.
     Utilize validação nos campos.
 
