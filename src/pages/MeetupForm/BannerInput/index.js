@@ -9,10 +9,17 @@ import { Container } from './styles';
 export default function BannerInput() {
   const { defaultValue, registerField } = useField('banner');
 
-  const [file, setFile] = useState(defaultValue && defaultValue.id);
-  const [preview, setPreview] = useState(defaultValue && defaultValue.url);
-
   const ref = useRef();
+
+  const [file, setFile] = useState(null);
+  const [preview, setPreview] = useState(null);
+
+  useEffect(() => {
+    if (defaultValue) {
+      setFile(defaultValue.id);
+      setPreview(defaultValue.url);
+    }
+  }, [defaultValue]);
 
   useEffect(() => {
     if (ref.current) {
@@ -33,6 +40,8 @@ export default function BannerInput() {
     const response = await api.post('files', data);
 
     const { id, url } = response.data;
+
+    console.tron.log(preview);
 
     setPreview(url);
     setFile(id);
