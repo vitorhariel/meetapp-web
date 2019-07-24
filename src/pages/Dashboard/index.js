@@ -5,6 +5,7 @@ import { MdAddCircleOutline, MdKeyboardArrowRight } from 'react-icons/md';
 import { Container, MeetupList } from './styles';
 
 import api from '../../services/api';
+import history from '../../services/history';
 
 export default function Dashboard() {
   const [meetups, setMeetups] = useState([]);
@@ -24,8 +25,6 @@ export default function Dashboard() {
     loadMeetups();
   }, []);
 
-  meetups.map(map => console.tron.log(map));
-
   return (
     <Container>
       <div>
@@ -36,12 +35,18 @@ export default function Dashboard() {
       </div>
       <MeetupList>
         {meetups.map(meetup => (
-          <li key={meetup.id}>
+          <button
+            type="button"
+            key={meetup.id}
+            onClick={() =>
+              history.push(`/details/${meetup.id}`, { state: 'a' })
+            }
+          >
             <strong>{meetup.title}</strong>
             <time>
               July 24, at 20h <MdKeyboardArrowRight size={24} />
             </time>
-          </li>
+          </button>
         ))}
       </MeetupList>
     </Container>

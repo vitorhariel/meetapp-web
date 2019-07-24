@@ -44,15 +44,19 @@ export const Container = styled.div`
 export const MeetupList = styled.ul`
   margin-top: 20px;
 
-  li {
+  button {
     display: flex;
     justify-content: space-between;
-
+    border: 0;
+    width: 100%;
     padding: 20px;
+    color: #fff;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 
-    & + li {
+    cursor: pointer;
+
+    & + button {
       margin-top: 10px;
     }
 
