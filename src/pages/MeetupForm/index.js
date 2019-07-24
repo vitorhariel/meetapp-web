@@ -10,7 +10,7 @@ import history from '../../services/history';
 import { Container } from './styles';
 
 import BannerInput from './BannerInput';
-import DataPicker from './DataPickerInput';
+import DatePicker from './DatePickerInput';
 
 export default function MeetupForm({ match }) {
   const { id } = match.params;
@@ -54,10 +54,11 @@ export default function MeetupForm({ match }) {
           name="description"
           placeholder="Description of the meetup"
           rows="10"
+          value={meetup.description}
           multiline
         />
 
-        <DataPicker />
+        <DatePicker />
         <Input
           type="text"
           name="location"

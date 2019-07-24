@@ -50,6 +50,10 @@ export const Container = styled.label`
       height: 100%;
       width: 100%;
       border-radius: 4px;
+
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 `;
