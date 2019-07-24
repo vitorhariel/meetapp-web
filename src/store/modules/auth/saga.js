@@ -18,7 +18,11 @@ export function* signUp({ payload }) {
     toast.success('Registered with success.');
     history.push('/');
   } catch (err) {
-    toast.error(err.response.data.error);
+    if (err.response) {
+      toast.error(err.response.data.error);
+    } else {
+      toast.error('Connection error.');
+    }
   }
 }
 
@@ -40,13 +44,19 @@ export function* signIn({ payload }) {
 
     history.push('/');
   } catch (err) {
-    toast.error(err.response.data.error);
+    if (err.response) {
+      toast.error(err.response.data.error);
+    } else {
+      toast.error('Connection error.');
+    }
 
     yield put(signInFailure());
   }
 }
 
 export function setToken({ payload }) {
+  if (!payload) return;
+
   const { token } = payload.auth;
 
   api.defaults.headers.Authorization = `Bearer ${token}`;

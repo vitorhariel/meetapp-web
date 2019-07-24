@@ -25,6 +25,8 @@ export const Content = styled.div`
     align-items: center;
 
     div {
+      display: flex;
+      flex-direction: column;
       margin-right: 20px;
       line-height: 20px;
 
@@ -33,7 +35,7 @@ export const Content = styled.div`
         font-size: 14px;
       }
 
-      p {
+      a {
         color: #999999;
         font-size: 14px;
         text-align: right;

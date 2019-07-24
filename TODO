@@ -13,7 +13,7 @@ Funcionalidades:
    ✔ Dashboard @done(19-07-23 22:46)
     O usuário deve poder listar os meetups que organiza e clicar para ver detalhes de um meetup.
     Nessa tela o usuário pode navegar para a página de criação de meetup.
-   ☐ Detalhes
+   ✔ Detalhes @done(19-07-24 10:58)
     O usuário deve poder visualizar detalhes de um meetup previamente cadastrado.
     Nessa tela o usuário pode editar os dados de um meetup ou até cancelar um meetup.
    ☐ Novo/editar

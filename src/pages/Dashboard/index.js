@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { format, parseISO } from 'date-fns';
+import Loader from 'react-loader-spinner';
 
 import { MdAddCircleOutline, MdKeyboardArrowRight } from 'react-icons/md';
 import { Container, MeetupList } from './styles';
@@ -7,8 +8,11 @@ import { Container, MeetupList } from './styles';
 import api from '../../services/api';
 import history from '../../services/history';
 
+import blank from '../../assets/blank.svg';
+
 export default function Dashboard() {
   const [meetups, setMeetups] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadMeetups() {
@@ -20,6 +24,7 @@ export default function Dashboard() {
       }));
 
       setMeetups(data);
+      setLoading(false);
     }
 
     loadMeetups();
@@ -33,22 +38,34 @@ export default function Dashboard() {
           <MdAddCircleOutline size={24} /> New meetup
         </button>
       </div>
-      <MeetupList>
-        {meetups.map(meetup => (
-          <button
-            type="button"
-            key={meetup.id}
-            onClick={() =>
-              history.push(`/details/${meetup.id}`, { state: 'a' })
-            }
-          >
-            <strong>{meetup.title}</strong>
-            <time>
-              July 24, at 20h <MdKeyboardArrowRight size={24} />
-            </time>
-          </button>
-        ))}
-      </MeetupList>
+      {loading ? (
+        <Loader type="TailSpin" color="#f94d6a" height={90} width={90} />
+      ) : (
+        <MeetupList>
+          {meetups.length > 0 ? (
+            meetups.map(meetup => (
+              <button
+                type="button"
+                key={meetup.id}
+                onClick={() =>
+                  history.push(`/details/${meetup.id}`, { state: 'a' })
+                }
+              >
+                <strong>{meetup.title}</strong>
+                <time>
+                  July 24, at 20h <MdKeyboardArrowRight size={24} />
+                </time>
+              </button>
+            ))
+          ) : (
+            <div>
+              <img src={blank} alt="Blank" />
+              <strong>You don't have any meetup</strong>
+              <p>Why don't you create one?</p>
+            </div>
+          )}
+        </MeetupList>
+      )}
     </Container>
   );
 }

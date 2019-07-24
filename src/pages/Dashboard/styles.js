@@ -15,6 +15,14 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-between;
 
+    & + div {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 200px;
+      margin: auto;
+    }
+
     button {
       display: flex;
       align-items: center;
@@ -68,6 +76,27 @@ export const MeetupList = styled.ul`
       opacity: 0.6;
       display: flex;
       align-items: center;
+    }
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      margin: 20px;
+      width: 50%;
+      height: 50%;
+    }
+
+    strong {
+      margin: 10px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    p {
+      opacity: 0.6;
     }
   }
 `;
