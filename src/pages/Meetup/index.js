@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { format, parseISO } from 'date-fns';
-import { MdEdit, MdDeleteForever } from 'react-icons/md';
+import {
+  MdEdit,
+  MdDeleteForever,
+  MdDateRange,
+  MdLocationOn,
+} from 'react-icons/md';
+import nl2br from 'react-nl2br';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader-spinner';
 import { toast } from 'react-toastify';
 import swal from 'sweetalert';
 
-import { Container, BannerImage } from './styles';
+import { Container } from './styles';
 
 import api from '../../services/api';
 import history from '../../services/history';
@@ -27,7 +33,7 @@ export default function Details({ match }) {
         url: response.data.banner ? response.data.banner.url : banner,
         formattedDate: format(
           parseISO(response.data.date),
-          "MMMM d', at' H'h'"
+          "m/d/yyyy' -' HH'h'MM"
         ),
       };
 
@@ -87,12 +93,23 @@ export default function Details({ match }) {
               </button>
             </aside>
           </div>
-          <BannerImage src={meetup.url} />
-          <p>{meetup.description}</p>
-          <footer>
-            <time>{meetup.formattedDate}</time>
-            <address>{meetup.location}</address>
-          </footer>
+          <div className="image-wrapper">
+            <img src={meetup.url} alt="Banner" />
+          </div>
+          <div className="meetup-body">
+            <p>{nl2br(meetup.description)}</p>
+            <hr />
+            <footer>
+              <time>
+                <MdDateRange size={24} color="#fb617f" />
+                {meetup.formattedDate}
+              </time>
+              <address>
+                <MdLocationOn size={24} color="#fb617f" />
+                {meetup.location}
+              </address>
+            </footer>
+          </div>
         </>
       )}
     </Container>

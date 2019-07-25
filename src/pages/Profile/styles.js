@@ -20,8 +20,9 @@ export const Container = styled.div`
     padding: 15px;
     border: 0;
     border-radius: 4px;
-    background: rgba(0, 0, 0, 0.2);
-    color: #fff;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
+    color: #000;
 
     &::placeholder {
       color: rgba(255, 255, 255, 0.4);
@@ -50,14 +51,14 @@ export const Container = styled.div`
     padding: 15px;
     border: 0;
     border-radius: 4px;
-    background: #f94d6a;
+    background: #fb617f;
     font-size: 16px;
     font-weight: bold;
     color: #fff;
     transition: background 0.2s;
 
     &:hover {
-      background: ${darken(0.04, '#F94D6A')};
+      background: ${darken(0.04, '#fb617f')};
     }
 
     svg {

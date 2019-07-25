@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { format, parseISO } from 'date-fns';
 import Loader from 'react-loader-spinner';
 
-import { MdAddCircleOutline, MdKeyboardArrowRight } from 'react-icons/md';
+import { MdAddCircleOutline, MdDateRange, MdLocationOn } from 'react-icons/md';
 import { Container, MeetupList } from './styles';
 
 import api from '../../services/api';
@@ -20,7 +20,7 @@ export default function Dashboard() {
 
       const data = response.data.map(meetup => ({
         ...meetup,
-        formattedDate: format(parseISO(meetup.date), "MMMM d', at' H'h'"),
+        formattedDate: format(parseISO(meetup.date), "m/d/yyyy' -' HH'h'MM"),
       }));
 
       setMeetups(data);
@@ -31,40 +31,53 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <Container>
-      <div>
-        <h1>My meetups</h1>
-        <button type="button" onClick={() => history.push('/manage/new')}>
-          <MdAddCircleOutline size={24} /> New meetup
-        </button>
-      </div>
+    <Container loading={loading ? 1 : 0}>
       {loading ? (
         <Loader type="TailSpin" color="#f94d6a" height={90} width={90} />
       ) : (
-        <MeetupList>
-          {meetups.length > 0 ? (
-            meetups.map(meetup => (
-              <button
-                type="button"
-                key={meetup.id}
-                onClick={() =>
-                  history.push(`/meetup/${meetup.id}`, { state: 'a' })
-                }
-              >
-                <strong>{meetup.title}</strong>
-                <time>
-                  July 24, at 20h <MdKeyboardArrowRight size={24} />
-                </time>
-              </button>
-            ))
-          ) : (
-            <div>
-              <img src={blank} alt="Blank" draggable="false" />
-              <strong>You don't have any meetup</strong>
-              <p>Why don't you create one?</p>
-            </div>
-          )}
-        </MeetupList>
+        <>
+          <div>
+            <h1>My meetups</h1>
+            <button
+              className="main"
+              type="button"
+              onClick={() => history.push('/manage/new')}
+            >
+              <MdAddCircleOutline size={24} /> New meetup
+            </button>
+          </div>
+          <MeetupList>
+            {meetups.length > 0 ? (
+              meetups.map(meetup => (
+                <button
+                  type="button"
+                  key={meetup.id}
+                  onClick={() =>
+                    history.push(`/meetup/${meetup.id}`, { state: 'a' })
+                  }
+                >
+                  <strong>{meetup.title}</strong>
+                  <div className="info">
+                    <span>
+                      <MdDateRange />
+                      {meetup.formattedDate}
+                    </span>
+                    <span>
+                      <MdLocationOn />
+                      {meetup.location}
+                    </span>
+                  </div>
+                </button>
+              ))
+            ) : (
+              <div>
+                <img src={blank} alt="Blank" draggable="false" />
+                <strong>You don&apos;t have any meetup</strong>
+                <p>Why don&apos;t you create one?</p>
+              </div>
+            )}
+          </MeetupList>
+        </>
       )}
     </Container>
   );

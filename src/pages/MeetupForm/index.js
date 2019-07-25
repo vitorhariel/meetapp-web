@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 import { MdAddCircleOutline } from 'react-icons/md';
+import Loader from 'react-loader-spinner';
 
 import api from '../../services/api';
 import history from '../../services/history';
@@ -26,6 +27,7 @@ export default function MeetupForm({ match }) {
   const create = id === 'new';
 
   const [meetup, setMeetup] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadMeetup() {
@@ -40,11 +42,15 @@ export default function MeetupForm({ match }) {
         } else {
           toast.error('Connection error.');
         }
+      } finally {
+        setLoading(false);
       }
     }
 
     if (!create) {
       loadMeetup();
+    } else {
+      setLoading(false);
     }
   }, [create, id]);
 
@@ -72,30 +78,36 @@ export default function MeetupForm({ match }) {
   }
 
   return (
-    <Container>
-      <Form initialData={meetup} schema={schema} onSubmit={handleSubmit}>
-        <BannerInput />
+    <Container loading={loading ? 1 : 0}>
+      {loading ? (
+        <Loader type="TailSpin" color="#f94d6a" height={90} width={90} />
+      ) : (
+        <>
+          <Form initialData={meetup} schema={schema} onSubmit={handleSubmit}>
+            <BannerInput />
 
-        <Input type="text" name="title" placeholder="Title of the meetup" />
-        <Input
-          type="text"
-          name="description"
-          placeholder="Description of the meetup"
-          rows="10"
-          value={meetup.description}
-          multiline
-        />
-        <DatePicker />
-        <Input
-          type="text"
-          name="location"
-          placeholder="Location of the meetup"
-        />
+            <Input type="text" name="title" placeholder="Title of the meetup" />
+            <Input
+              type="text"
+              name="description"
+              placeholder="Description of the meetup"
+              rows="10"
+              value={meetup.description}
+              multiline
+            />
+            <DatePicker />
+            <Input
+              type="text"
+              name="location"
+              placeholder="Location of the meetup"
+            />
 
-        <button type="submit">
-          <MdAddCircleOutline size={24} /> {create ? 'Create' : 'Update'}
-        </button>
-      </Form>
+            <button type="submit">
+              <MdAddCircleOutline size={24} /> {create ? 'Create' : 'Update'}
+            </button>
+          </Form>
+        </>
+      )}
     </Container>
   );
 }

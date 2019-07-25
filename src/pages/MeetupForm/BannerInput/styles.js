@@ -31,6 +31,9 @@ export const Container = styled.label`
         props.preview &&
         css`
           display: none;
+          svg .hover {
+            display: inline;
+          }
         `}
     }
 

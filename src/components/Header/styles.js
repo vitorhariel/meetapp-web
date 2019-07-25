@@ -5,6 +5,7 @@ export const Container = styled.div`
   background: #fff;
   padding: 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
+  font-family: 'Titillium Web', sans-serif;
 `;
 
 export const Content = styled.div`
@@ -33,12 +34,12 @@ export const Content = styled.div`
 
       strong {
         color: #000;
-        font-size: 14px;
+        font-size: 16px;
       }
 
       a {
         color: #999999;
-        font-size: 14px;
+        font-size: 16px;
         text-align: right;
       }
     }

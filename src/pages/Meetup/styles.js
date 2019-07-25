@@ -8,7 +8,7 @@ export const Container = styled.div`
 
   padding: 20px;
 
-  color: #fff;
+  color: #fb617f;
 
   div {
     display: flex;
@@ -36,22 +36,22 @@ export const Container = styled.div`
         justify-content: center;
         border: 0;
         border-radius: 4px;
-        background: #4dbaf9;
+        background: #4680ff;
         font-size: 16px;
         font-weight: bold;
         color: #fff;
         transition: background 0.2s;
 
         &:hover {
-          background: ${darken(0.04, '#4DBAF9')};
+          background: ${darken(0.04, '#4680ff')};
         }
 
         & + button {
           margin-left: 15px;
-          background: #f94d6a;
+          background: #fb617f;
 
           &:hover {
-            background: ${darken(0.04, '#F94D6A')};
+            background: ${darken(0.04, '#fb617f')};
           }
         }
 
@@ -62,27 +62,66 @@ export const Container = styled.div`
     }
   }
 
-  p {
-    margin-top: 15px;
-    line-height: 24px;
-  }
-
-  footer {
+  .meetup-body {
     display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-    opacity: 0.6;
+    flex-direction: column;
 
-    address {
-      font-style: normal;
+    height: 100%;
+    background: #fff;
+    color: #222;
+    top: 320px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
+
+    padding: 15px;
+
+    hr {
+      margin-top: 20px;
+      width: 100%;
+      height: 1px;
+      border: 0;
+      color: rgba(0, 0, 0, 0.1);
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+      margin-top: 15px;
+      line-height: 24px;
+      width: 100%;
+      flex: 1;
+    }
+
+    footer {
+      width: 100%;
+      flex: 1;
+      margin-top: 20px;
+      opacity: 0.6;
+
+      svg {
+        margin-right: 5px;
+      }
+
+      time {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+      }
+
+      address {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        font-style: normal;
+      }
     }
   }
-`;
 
-export const BannerImage = styled.img`
-  margin-top: 30px;
-  width: 100%;
-  height: 300px;
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
+  img {
+    margin-top: 15px;
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+  }
 `;

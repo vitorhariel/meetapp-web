@@ -8368,6 +8368,11 @@ react-loader-spinner@^2.3.0:
     babel-runtime "^6.26.0"
     prop-types "^15.6.2"
 
+react-nl2br@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/react-nl2br/-/react-nl2br-0.4.1.tgz#bf7b0508aa51711d6f4e8aeb90e4345d82314a9a"
+  integrity sha512-Bs5rQEkQvF4Dk5uK6Ihsh0xUfJDBD/Ca6Qw/VHGSbTj54yCiKn7etPmNDfPNWQnGydZFcyfFxpEUChHk9idaEQ==
+
 react-onclickoutside@^6.7.1:
   version "6.8.0"
   resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.8.0.tgz#9f91b5b3ed59f4d9e43fd71620dc200773a4d569"

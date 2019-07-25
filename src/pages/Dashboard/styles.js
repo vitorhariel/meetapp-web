@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
@@ -8,43 +8,44 @@ export const Container = styled.div`
 
   padding: 20px;
 
-  color: #fff;
+  color: #fb617f;
 
   div {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    & + div {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      height: 200px;
-      margin: auto;
+    ${props =>
+      props.loading &&
+      css`
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 200px;
+        margin: auto;
+      `}
+  }
+  .main {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    padding: 10px;
+    width: 160px;
+    justify-content: center;
+    border: 0;
+    border-radius: 4px;
+    background: #fb617f;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    transition: background 0.2s;
+
+    &:hover {
+      background: ${darken(0.04, '#fb617f')};
     }
 
-    button {
-      display: flex;
-      align-items: center;
-      margin: 5px 0;
-      padding: 10px;
-      width: 160px;
-      justify-content: center;
-      border: 0;
-      border-radius: 4px;
-      background: #f94d6a;
-      font-size: 16px;
-      font-weight: bold;
-      color: #fff;
-      transition: background 0.2s;
-
-      &:hover {
-        background: ${darken(0.04, '#F94D6A')};
-      }
-
-      svg {
-        margin-right: 5px;
-      }
+    svg {
+      margin-right: 5px;
     }
   }
 `;
@@ -55,14 +56,27 @@ export const MeetupList = styled.ul`
   button {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border: 0;
     width: 100%;
-    padding: 20px;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.2);
+    padding: 28px;
+    color: #333;
+    background: #fff;
     border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.2s, opacity 0.2s;
 
-    cursor: pointer;
+    &:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 6px rgba(93, 97, 164, 0.15);
+
+    &:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(93, 97, 164, 0.25);
+  }
+  }
+
 
     & + button {
       margin-top: 10px;
@@ -72,10 +86,21 @@ export const MeetupList = styled.ul`
       font-size: 18px;
     }
 
-    time {
-      opacity: 0.6;
+    .info {
+      opacity: 0.7;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+
+      span {
+        display: flex
+        width: 100%;
+        font-size: 14px;
+        text-align: left;
+
+        svg {
+          margin-right: 5px;
+        }
+      }
     }
   }
 
