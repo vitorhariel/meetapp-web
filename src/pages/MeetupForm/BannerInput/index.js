@@ -8,11 +8,12 @@ import { Container } from './styles';
 
 export default function BannerInput() {
   const { defaultValue, registerField } = useField('banner');
+  const { error } = useField('banner_id');
+
+  const [file, setFile] = useState();
+  const [preview, setPreview] = useState();
 
   const ref = useRef();
-
-  const [file, setFile] = useState(null);
-  const [preview, setPreview] = useState(null);
 
   useEffect(() => {
     if (defaultValue) {
@@ -41,10 +42,8 @@ export default function BannerInput() {
 
     const { id, url } = response.data;
 
-    console.tron.log(preview);
-
-    setPreview(url);
     setFile(id);
+    setPreview(url);
   }
 
   return (
@@ -66,6 +65,7 @@ export default function BannerInput() {
           ref={ref}
         />
       </label>
+      {error && <span>{error}</span>}
     </Container>
   );
 }

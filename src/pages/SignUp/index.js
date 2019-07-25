@@ -1,10 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
-import logo from '../../assets/M.svg';
+import logo from '../../assets/logo.svg';
+
+import history from '../../services/history';
 
 import { signUpRequest } from '../../store/modules/auth/actions';
 
@@ -29,11 +30,25 @@ export default function SignUp() {
     <>
       <img src={logo} alt="Meetapp" />
       <Form onSubmit={handleSubmit} schema={schema}>
-        <Input type="text" name="name" placeholder="Full name" />
-        <Input type="email" name="email" placeholder="Your e-mail" />
-        <Input type="password" name="password" placeholder="Your password" />
+        <div className="group">
+          <Input type="text" name="name" placeholder="Full name" />
+          <div className="input-border" />
+        </div>
+        <div className="group">
+          <Input type="email" name="email" placeholder="Your e-mail" />
+          <div className="input-border" />
+        </div>
+        <div className="group">
+          <Input type="password" name="password" placeholder="Your password" />
+          <div className="input-border" />
+        </div>
         <button type="submit">Register</button>
-        <Link to="/">Already have an account?</Link>
+        <div className="footer">
+          <span>Already have an account?</span>
+          <button type="button" onClick={() => history.push('/')}>
+            Sign In
+          </button>
+        </div>
       </Form>
     </>
   );

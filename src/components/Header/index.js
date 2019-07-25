@@ -6,7 +6,7 @@ import { Container, Content } from './styles';
 
 import { signOut } from '../../store/modules/auth/actions';
 
-import logo from '../../assets/M.svg';
+import logo from '../../assets/logo.svg';
 
 export default function Header() {
   const dispatch = useDispatch();

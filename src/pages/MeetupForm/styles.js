@@ -24,6 +24,15 @@ export const Container = styled.div`
       }
     }
 
+    span {
+      color: #f42c3b;
+      text-align: left;
+    }
+
+    textarea {
+      resize: none;
+    }
+
     .react-datepicker-wrapper,
     .react-datepicker__input-container {
       width: 100%;

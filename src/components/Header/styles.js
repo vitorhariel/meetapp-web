@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
-  background: rgba(0, 0, 0, 0.3);
+  background: #fff;
   padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
 `;
 
 export const Content = styled.div`
@@ -16,8 +17,8 @@ export const Content = styled.div`
   justify-content: space-between;
 
   img {
-    width: 32px;
-    height: 32px;
+    width: 48px;
+    height: 48px;
   }
 
   aside {
@@ -31,7 +32,7 @@ export const Content = styled.div`
       line-height: 20px;
 
       strong {
-        color: #fff;
+        color: #000;
         font-size: 14px;
       }
 
@@ -48,14 +49,14 @@ export const Content = styled.div`
     padding: 15px;
     border: 0;
     border-radius: 4px;
-    background: #f94d6a;
+    background: #4680ff;
     font-size: 16px;
     font-weight: bold;
     color: #fff;
     transition: background 0.2s;
 
     &:hover {
-      background: ${darken(0.04, '#F94D6A')};
+      background: ${darken(0.04, '#4680ff')};
     }
   }
 `;
