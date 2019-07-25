@@ -118,6 +118,7 @@ export const Container = styled.div`
   }
 
   img {
+    background: #fff;
     margin-top: 15px;
     width: 100%;
     height: 300px;
