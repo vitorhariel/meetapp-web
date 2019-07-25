@@ -120,7 +120,7 @@ export const Container = styled.div`
   img {
     margin-top: 15px;
     width: 100%;
-    height: 100%;
+    height: 300px;
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
   }

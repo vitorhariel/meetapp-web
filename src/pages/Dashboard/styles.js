@@ -89,25 +89,29 @@ export const Meetup = styled.button`
   transition: transform 0.3s, box-shadow 0.2s, opacity 0.2s;
 
   ${props =>
-    props.past &&
-    css`
-      opacity: 0.6;
-    `}
+    !props.past &&
+    `
+    &:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+      box-shadow: 0 2px 6px rgba(93, 97, 164, 0.15);
+    }
 
-  &:hover {
-    opacity: 1;
-    transform: translateY(-2px);
-    box-shadow: 0 2px 6px rgba(93, 97, 164, 0.15);
-  }
-
-  &:active {
-    transform: translateY(0);
-    box-shadow: 0 1px 2px rgba(93, 97, 164, 0.25);
-  }
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 2px rgba(93, 97, 164, 0.25);
+    }
+  `}
 
   & + button {
     margin-top: 10px;
   }
+
+  ${props =>
+    props.past &&
+    css`
+      opacity: 0.6;
+    `}
 
   strong {
     font-size: 18px;
