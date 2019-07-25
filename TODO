@@ -16,7 +16,7 @@ Funcionalidades:
    ✔ Detalhes @done(19-07-24 10:58)
     O usuário deve poder visualizar detalhes de um meetup previamente cadastrado.
     Nessa tela o usuário pode editar os dados de um meetup ou até cancelar um meetup.
-   ☐ Novo/editar
+   ✔ Novo/editar @done(19-07-25 01:46)
     O usuário deve poder cadastrar ou editar informações de meetups que organiza.
     Exiba a preview de imagem de banner do meetup quando o usuário selecionar uma imagem.
     Utilize validação nos campos.
