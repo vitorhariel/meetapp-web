@@ -33,7 +33,7 @@ export default function Details({ match }) {
         url: response.data.banner ? response.data.banner.url : banner,
         formattedDate: format(
           parseISO(response.data.date),
-          "m/d/yyyy' -' HH'h'MM"
+          "MM/dd/yyyy' -' HH'h'MM"
         ),
       };
 
@@ -81,17 +81,19 @@ export default function Details({ match }) {
           <div>
             <h1>{meetup.title}</h1>
 
-            <aside>
-              <button
-                type="button"
-                onClick={() => history.push(`/manage/${id}`)}
-              >
-                <MdEdit size={24} /> Edit
-              </button>
-              <button type="button" onClick={handleCancel}>
-                <MdDeleteForever size={24} /> Cancel
-              </button>
-            </aside>
+            {meetup.past ? null : (
+              <aside>
+                <button
+                  type="button"
+                  onClick={() => history.push(`/manage/${id}`)}
+                >
+                  <MdEdit size={24} /> Edit
+                </button>
+                <button type="button" onClick={handleCancel}>
+                  <MdDeleteForever size={24} /> Cancel
+                </button>
+              </aside>
+            )}
           </div>
           <div className="image-wrapper">
             <img src={meetup.url} alt="Banner" />

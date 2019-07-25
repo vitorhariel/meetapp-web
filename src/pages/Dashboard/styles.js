@@ -53,57 +53,6 @@ export const Container = styled.div`
 export const MeetupList = styled.ul`
   margin-top: 20px;
 
-  button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 0;
-    width: 100%;
-    padding: 28px;
-    color: #333;
-    background: #fff;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s, box-shadow 0.2s, opacity 0.2s;
-
-    &:hover {
-    opacity: 1;
-    transform: translateY(-2px);
-    box-shadow: 0 2px 6px rgba(93, 97, 164, 0.15);
-
-    &:active {
-    transform: translateY(0);
-    box-shadow: 0 1px 2px rgba(93, 97, 164, 0.25);
-  }
-  }
-
-
-    & + button {
-      margin-top: 10px;
-    }
-
-    strong {
-      font-size: 18px;
-    }
-
-    .info {
-      opacity: 0.7;
-      display: flex;
-      flex-direction: column;
-
-      span {
-        display: flex
-        width: 100%;
-        font-size: 14px;
-        text-align: left;
-
-        svg {
-          margin-right: 5px;
-        }
-      }
-    }
-  }
-
   div {
     display: flex;
     flex-direction: column;
@@ -122,6 +71,62 @@ export const MeetupList = styled.ul`
 
     p {
       opacity: 0.6;
+    }
+  }
+`;
+
+export const Meetup = styled.button`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 0;
+  width: 100%;
+  padding: 28px;
+  color: #333;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.2s, opacity 0.2s;
+
+  ${props =>
+    props.past &&
+    css`
+      opacity: 0.6;
+    `}
+
+  &:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 6px rgba(93, 97, 164, 0.15);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(93, 97, 164, 0.25);
+  }
+
+  & + button {
+    margin-top: 10px;
+  }
+
+  strong {
+    font-size: 18px;
+  }
+
+  .info {
+    opacity: 0.7;
+    display: flex;
+    flex-direction: column;
+
+    span {
+      display: flex;
+      width: 100%;
+      font-size: 14px;
+      text-align: left;
+
+      svg {
+        margin-right: 5px;
+      }
     }
   }
 `;

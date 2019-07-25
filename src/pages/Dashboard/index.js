@@ -3,7 +3,7 @@ import { format, parseISO } from 'date-fns';
 import Loader from 'react-loader-spinner';
 
 import { MdAddCircleOutline, MdDateRange, MdLocationOn } from 'react-icons/md';
-import { Container, MeetupList } from './styles';
+import { Container, MeetupList, Meetup } from './styles';
 
 import api from '../../services/api';
 import history from '../../services/history';
@@ -20,7 +20,7 @@ export default function Dashboard() {
 
       const data = response.data.map(meetup => ({
         ...meetup,
-        formattedDate: format(parseISO(meetup.date), "m/d/yyyy' -' HH'h'MM"),
+        formattedDate: format(parseISO(meetup.date), "MM/dd/yyyy' -' HH'h'MM"),
       }));
 
       setMeetups(data);
@@ -49,7 +49,8 @@ export default function Dashboard() {
           <MeetupList>
             {meetups.length > 0 ? (
               meetups.map(meetup => (
-                <button
+                <Meetup
+                  past={meetup.past ? 1 : 0}
                   type="button"
                   key={meetup.id}
                   onClick={() =>
@@ -67,7 +68,7 @@ export default function Dashboard() {
                       {meetup.location}
                     </span>
                   </div>
-                </button>
+                </Meetup>
               ))
             ) : (
               <div>
