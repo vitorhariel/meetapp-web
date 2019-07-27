@@ -18,8 +18,7 @@ export const Content = styled.div`
   justify-content: space-between;
 
   img {
-    width: 48px;
-    height: 48px;
+    margin-top: 5px;
   }
 
   aside {

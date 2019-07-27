@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 import { Container, Content } from './styles';
 
-import { signOut } from '../../store/modules/auth/actions';
+import { signOut } from '~/store/modules/auth/actions';
 
-import logo from '../../assets/logo.svg';
+import logo from '~/assets/logo.png';
 
 export default function Header() {
   const dispatch = useDispatch();

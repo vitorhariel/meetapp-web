@@ -102,8 +102,6 @@ export const Content = styled.div`
   }
 
   img {
-    width: 64px;
-    height: 64px;
     margin-bottom: 20px;
   }
 

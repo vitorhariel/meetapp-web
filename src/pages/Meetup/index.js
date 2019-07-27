@@ -14,10 +14,10 @@ import swal from 'sweetalert';
 
 import { Container } from './styles';
 
-import api from '../../services/api';
-import history from '../../services/history';
+import api from '~/services/api';
+import history from '~/services/history';
 
-import banner from '../../assets/banner.jpeg';
+import banner from '~/assets/banner.jpeg';
 
 export default function Details({ match }) {
   const { id } = match.params;

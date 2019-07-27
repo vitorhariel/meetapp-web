@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
-import logo from '../../assets/logo.svg';
+import logo from '~/assets/logo.png';
 
-import history from '../../services/history';
+import history from '~/services/history';
 
-import { signInRequest } from '../../store/modules/auth/actions';
+import { signInRequest } from '~/store/modules/auth/actions';
 
 const schema = Yup.object().shape({
   email: Yup.string()

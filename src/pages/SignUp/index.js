@@ -3,11 +3,11 @@ import { useDispatch } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
-import logo from '../../assets/logo.svg';
+import logo from '~/assets/logo.png';
 
-import history from '../../services/history';
+import history from '~/services/history';
 
-import { signUpRequest } from '../../store/modules/auth/actions';
+import { signUpRequest } from '~/store/modules/auth/actions';
 
 const schema = Yup.object().shape({
   name: Yup.string().required('Full name is a required field.'),

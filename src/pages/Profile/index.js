@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { MdAddCircleOutline } from 'react-icons/md';
 import { Container } from './styles';
 
-import { updateProfileRequest } from '../../store/modules/user/actions';
+import { updateProfileRequest } from '~/store/modules/user/actions';
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required('Name is a required field.'),

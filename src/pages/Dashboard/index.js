@@ -5,10 +5,10 @@ import Loader from 'react-loader-spinner';
 import { MdAddCircleOutline, MdDateRange, MdLocationOn } from 'react-icons/md';
 import { Container, MeetupList, Meetup } from './styles';
 
-import api from '../../services/api';
-import history from '../../services/history';
+import api from '~/services/api';
+import history from '~/services/history';
 
-import blank from '../../assets/blank.svg';
+import blank from '~/assets/blank.svg';
 
 export default function Dashboard() {
   const [meetups, setMeetups] = useState([]);
