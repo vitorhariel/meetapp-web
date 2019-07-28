@@ -18,7 +18,7 @@ const schema = Yup.object().shape({
   banner_id: Yup.number().required('You must set a banner for the meetup.'),
   title: Yup.string().required('Title is a required field.'),
   description: Yup.string().required('Description is a required field.'),
-  date: Yup.date().required('Date is a required field.'),
+  date: Yup.date('Date must be valid.').required('Date is a required field.'),
   location: Yup.string().required('Location is a required field.'),
 });
 
@@ -70,7 +70,6 @@ export default function MeetupForm({ match }) {
     } catch (err) {
       if (err.response) {
         toast.error(err.response.data.error);
-        history.push('/dashboard');
       } else {
         toast.error('Connection error.');
       }
@@ -92,10 +91,9 @@ export default function MeetupForm({ match }) {
               name="description"
               placeholder="Description of the meetup"
               rows="10"
-              value={meetup.description}
               multiline
             />
-            <DatePicker />
+            <DatePicker name="date" placeholder="Date of the meetup" />
             <Input
               type="text"
               name="location"

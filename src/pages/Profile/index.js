@@ -7,12 +7,15 @@ import { Container } from './styles';
 
 import { updateProfileRequest } from '~/store/modules/user/actions';
 
+import AvatarInput from './AvatarInput';
+
 const validationSchema = Yup.object().shape({
   name: Yup.string().required('Name is a required field.'),
   email: Yup.string()
     .email()
     .required('Email is a required field.'),
   oldPassword: Yup.string(),
+  avatar_id: Yup.number(),
   password: Yup.string().when('oldPassword', (oldPassword, schema) => {
     return oldPassword
       ? schema
@@ -35,6 +38,7 @@ export default function Profile() {
   const user = useSelector(state => state.user.user);
 
   function handleSubmit(data) {
+    console.log(data);
     dispatch(updateProfileRequest(data));
   }
 
@@ -45,6 +49,7 @@ export default function Profile() {
         schema={validationSchema}
         initialData={user}
       >
+        <AvatarInput />
         <Input type="text" name="name" placeholder="Full name" />
         <Input type="email" name="email" placeholder="E-mail" />
 

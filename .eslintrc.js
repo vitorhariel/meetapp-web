@@ -22,6 +22,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'no-console': 'off',
     'no-param-reassign': 'off',
+    camelcase: 'off',
   },
   settings: {
     'import/resolver': {

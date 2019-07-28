@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { MdArrowDropDown } from 'react-icons/md';
 
 import { Container, Content } from './styles';
 
@@ -10,7 +11,7 @@ import logo from '~/assets/logo.png';
 
 export default function Header() {
   const dispatch = useDispatch();
-  const user = useSelector(state => state.user.user);
+  const profile = useSelector(state => state.user);
 
   function handleSignOut() {
     dispatch(signOut());
@@ -25,12 +26,22 @@ export default function Header() {
 
         <aside>
           <div>
-            <strong>{user.name}</strong>
-            <Link to="/profile">My profile</Link>
+            <Link to="/profile">
+              <img
+                src={
+                  (profile.user.avatar && profile.user.avatar.url) ||
+                  `https://api.adorable.io/avatars/50/${profile.user.id}`
+                }
+                alt=""
+              />
+            </Link>
           </div>
-          <button type="button" onClick={handleSignOut}>
-            Log out
-          </button>
+          <MdArrowDropDown size={24} />
+          <div className="dropdown-content">
+            <button type="button" onClick={handleSignOut}>
+              Sign Out
+            </button>
+          </div>
         </aside>
       </Content>
     </Container>

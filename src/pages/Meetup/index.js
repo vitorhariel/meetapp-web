@@ -12,7 +12,7 @@ import Loader from 'react-loader-spinner';
 import { toast } from 'react-toastify';
 import swal from 'sweetalert';
 
-import { Container } from './styles';
+import { Container, Subscriptions } from './styles';
 
 import api from '~/services/api';
 import history from '~/services/history';
@@ -71,14 +71,13 @@ export default function Details({ match }) {
       }
     }
   }
-
   return (
     <Container loading={loading ? 1 : 0}>
       {loading ? (
         <Loader type="TailSpin" color="#f94d6a" height={90} width={90} />
       ) : (
         <>
-          <div>
+          <div className="main-container">
             <h1>{meetup.title}</h1>
 
             {meetup.past ? null : (
@@ -96,7 +95,7 @@ export default function Details({ match }) {
             )}
           </div>
           <div className="image-wrapper">
-            <img src={meetup.url} alt="Banner" />
+            <img className="banner" src={meetup.url} alt="Banner" />
           </div>
           <div className="meetup-body">
             <p>{nl2br(meetup.description)}</p>
@@ -112,6 +111,31 @@ export default function Details({ match }) {
               </address>
             </footer>
           </div>
+
+          <Subscriptions>
+            <h3>Subscriptions</h3>
+            <div className="subscriptions-box">
+              {meetup.Subscriptions.length >= 1 ? (
+                meetup.Subscriptions.map(subscription => (
+                  <div key={subscription.user_id} className="subbed-user">
+                    <img
+                      src={
+                        (subscription.User.avatar &&
+                          subscription.User.avatar.url) ||
+                        `https://api.adorable.io/avatars/50/${subscription.user_id}`
+                      }
+                      alt={subscription.User.name}
+                      title={subscription.User.name}
+                    />
+                  </div>
+                ))
+              ) : (
+                <span className="empty-subscriptions">
+                  There isn&apos;t anyone yet.
+                </span>
+              )}
+            </div>
+          </Subscriptions>
         </>
       )}
     </Container>
