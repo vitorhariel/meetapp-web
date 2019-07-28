@@ -13,6 +13,8 @@ import history from './services/history';
 
 import { store, persistor } from './store';
 
+console.log(process.env);
+
 function App() {
   return (
     <Provider store={store}>
