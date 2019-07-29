@@ -15,6 +15,10 @@ export default function user(state = INITIAL_STATE, action) {
         draft.user = action.payload.user;
         break;
       }
+      case '@auth/TOKEN_INVALID': {
+        draft.user = null;
+        break;
+      }
       default:
     }
   });

@@ -8,6 +8,8 @@ import { Container, MeetupList, Meetup } from './styles';
 import api from '~/services/api';
 import history from '~/services/history';
 
+import { tokenInvalid } from '~/store/modules/auth/actions';
+
 import blank from '~/assets/blank.svg';
 
 export default function Dashboard() {

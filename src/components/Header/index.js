@@ -17,7 +17,7 @@ export default function Header() {
     dispatch(signOut());
   }
 
-  return (
+  return profile.user ? (
     <Container>
       <Content>
         <Link to="/dashboard">
@@ -45,5 +45,5 @@ export default function Header() {
         </aside>
       </Content>
     </Container>
-  );
+  ) : null;
 }
