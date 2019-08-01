@@ -55,13 +55,15 @@ export function* signIn({ payload }) {
 }
 
 export function* setToken({ payload }) {
-  if (!payload.auth.token) return;
+  if (!payload) return;
 
   const { token } = payload.auth;
-  const decoded = jwt_decode(token);
+  if (payload && payload.auth.token) {
+    const decoded = jwt_decode(token);
 
-  if (decoded.exp < Date.now() / 1000) {
-    yield put(tokenInvalid());
+    if (decoded.exp < Date.now() / 1000) {
+      yield put(tokenInvalid());
+    }
   }
 
   api.defaults.headers.Authorization = `Bearer ${token}`;
