@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useField } from '@rocketseat/unform';
+import { toast } from 'react-toastify';
 import api from '~/services/api';
 
 import { Container } from './styles';
@@ -28,14 +29,19 @@ export default function AvatarInput() {
   async function handleChange(e) {
     const data = new FormData();
 
-    data.append('file', e.target.files[0]);
+    if (e.target.files[0].size > 2048 * 16 * 10) {
+      console.log(e.target.files[0].size);
+      toast.error('File is too big. Max: 2 MB');
+    } else {
+      data.append('file', e.target.files[0]);
 
-    const response = await api.post('avatar', data);
+      const response = await api.post('avatar', data);
 
-    const { id, url } = response.data;
+      const { id, url } = response.data;
 
-    setFile(id);
-    setPreview(url);
+      setFile(id);
+      setPreview(url);
+    }
   }
 
   return (

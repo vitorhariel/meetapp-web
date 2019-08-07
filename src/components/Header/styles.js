@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   background: #fff;
   padding: 10px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.04), 0 3px 4px rgba(0, 0, 0, 0.08);
 `;
 
 export const Content = styled.div`
@@ -15,6 +15,22 @@ export const Content = styled.div`
   text-align: center;
   align-items: center;
   justify-content: space-between;
+
+  nav {
+    a {
+      display: flex;
+      justify-content: center;
+      color: #333;
+
+      svg {
+        margin-right: 5px;
+      }
+    }
+
+    a.active {
+      font-weight: bold;
+    }
+  }
 
   img {
     margin-top: 5px;

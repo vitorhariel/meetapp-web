@@ -1,13 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { MdArrowDropDown } from 'react-icons/md';
+import { MdArrowDropDown, MdHome } from 'react-icons/md';
 
 import { Container, Content } from './styles';
 
 import { signOut } from '~/store/modules/auth/actions';
-
-import logo from '~/assets/logo.png';
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -20,9 +18,12 @@ export default function Header() {
   return profile.user ? (
     <Container>
       <Content>
-        <Link to="/dashboard">
-          <img src={logo} alt="Meetapp" />
-        </Link>
+        <nav>
+          <Link to="/dashboard" className="active">
+            <MdHome />
+            Dashboard
+          </Link>
+        </nav>
 
         <aside>
           <div>

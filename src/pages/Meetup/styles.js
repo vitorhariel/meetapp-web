@@ -7,7 +7,7 @@ export const Container = styled.div`
   margin: 40px auto;
   padding: 20px;
 
-  color: #fb617f;
+  color: #333;
 
   ${props =>
     props.loading === 1 &&
@@ -25,6 +25,10 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media all and (max-width: 481px) {
+      flex-direction: column;
+    }
 
     aside {
       display: flex;

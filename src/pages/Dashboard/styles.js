@@ -8,12 +8,16 @@ export const Container = styled.div`
 
   padding: 20px;
 
-  color: #fb617f;
+  color: #333;
 
   div {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media all and (max-width: 481px) {
+      flex-direction: column;
+    }
 
     ${props =>
       props.loading &&
@@ -85,7 +89,7 @@ export const Meetup = styled.button`
   color: #333;
   background: #fff;
   border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06), 0 3px 6px rgba(0, 0, 0, 0.13);
   transition: transform 0.3s, box-shadow 0.2s, opacity 0.2s;
 
   ${props =>
@@ -121,6 +125,7 @@ export const Meetup = styled.button`
     opacity: 0.7;
     display: flex;
     flex-direction: column;
+    min-width: 230px;
 
     span {
       display: flex;
@@ -131,6 +136,14 @@ export const Meetup = styled.button`
       svg {
         margin-right: 5px;
       }
+    }
+  }
+
+  @media all and (max-width: 481px) {
+    flex-direction: column;
+
+    .info {
+      margin-top: 10px;
     }
   }
 `;
