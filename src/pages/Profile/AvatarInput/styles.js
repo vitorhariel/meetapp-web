@@ -14,7 +14,8 @@ export const Container = styled.div`
       width: 128px;
       height: 128px;
       border-radius: 50%;
-      background: #eee;
+      display: inline-block;
+      background: #fff;
       border: 3px solid rgba(255, 255, 255, 0.3);
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
     }

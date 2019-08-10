@@ -38,14 +38,16 @@ export const Container = styled.div`
     justify-content: center;
     border: 0;
     border-radius: 4px;
-    background: #fb617f;
+    background: #4680ff;
     font-size: 16px;
     font-weight: bold;
     color: #fff;
+    box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+      0 15px 40px rgba(166, 173, 201, 0.2);
     transition: background 0.2s;
 
     &:hover {
-      background: ${darken(0.04, '#fb617f')};
+      background: ${darken(0.04, '#4680ff')};
     }
 
     svg {
@@ -89,7 +91,8 @@ export const Meetup = styled.button`
   color: #333;
   background: #fff;
   border-radius: 4px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06), 0 3px 6px rgba(0, 0, 0, 0.13);
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(166, 173, 201, 0.2);
   transition: transform 0.3s, box-shadow 0.2s, opacity 0.2s;
 
   ${props =>

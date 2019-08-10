@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
   background: #fff;
   padding: 10px;
-  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.04), 0 3px 4px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 30px rgba(166, 173, 201, 0.2);
 `;
 
 export const Content = styled.div`
@@ -20,10 +21,14 @@ export const Content = styled.div`
     a {
       display: flex;
       justify-content: center;
+      align-items: center;
       color: #333;
 
-      svg {
-        margin-right: 5px;
+      hr {
+        margin: 0 10px;
+        height: 20px;
+        color: rgba(51, 53, 53);
+        opacity: 0.5;
       }
     }
 
@@ -49,8 +54,9 @@ export const Content = styled.div`
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
-        border: 2px solid rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        display: inline-block;
+        background: #fff;
       }
     }
 

@@ -1,9 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { MdArrowDropDown, MdHome } from 'react-icons/md';
+import { MdArrowDropDown } from 'react-icons/md';
 
 import { Container, Content } from './styles';
+
+import logo from '~/assets/logo.png';
 
 import { signOut } from '~/store/modules/auth/actions';
 
@@ -20,8 +22,9 @@ export default function Header() {
       <Content>
         <nav>
           <Link to="/dashboard" className="active">
-            <MdHome />
-            Dashboard
+            <img src={logo} alt="Meetapp" />
+            <hr />
+            <span>Dashboard</span>
           </Link>
         </nav>
 

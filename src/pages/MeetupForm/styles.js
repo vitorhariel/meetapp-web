@@ -64,6 +64,8 @@ export const Container = styled.div`
       font-size: 16px;
       font-weight: bold;
       color: #fff;
+      box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+        0 15px 40px rgba(166, 173, 201, 0.2);
       transition: background 0.2s;
 
       &:hover {

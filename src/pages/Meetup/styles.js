@@ -46,6 +46,8 @@ export const Container = styled.div`
         font-size: 16px;
         font-weight: bold;
         color: #fff;
+        box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+          0 15px 40px rgba(166, 173, 201, 0.2);
         transition: background 0.2s;
 
         &:hover {
@@ -78,8 +80,8 @@ export const Container = styled.div`
     top: 320px;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
-
+    box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+      0 15px 40px rgba(166, 173, 201, 0.2);
     padding: 15px;
 
     hr {
@@ -139,7 +141,8 @@ export const Subscriptions = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+    0 15px 40px rgba(166, 173, 201, 0.2);
 
   h3 {
     padding: 15px 15px;
