@@ -24,6 +24,8 @@ export function* signUp({ payload }) {
     } else {
       toast.error('Connection error.');
     }
+
+    yield put(signInFailure());
   }
 }
 
