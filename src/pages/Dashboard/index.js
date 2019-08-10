@@ -51,13 +51,19 @@ export default function Dashboard() {
               meetups.map(meetup => (
                 <Meetup
                   past={meetup.past ? 1 : 0}
+                  canceled={meetup.canceled ? 1 : 0}
                   type="button"
                   key={meetup.id}
                   onClick={() =>
                     history.push(`/meetup/${meetup.id}`, { state: 'a' })
                   }
                 >
-                  <strong>{meetup.title}</strong>
+                  {meetup.canceled ? (
+                    <s>{meetup.title}</s>
+                  ) : (
+                    <strong>{meetup.title}</strong>
+                  )}
+
                   <div className="info">
                     <span>
                       <MdDateRange />

@@ -59,6 +59,10 @@ export const Container = styled.div`
 export const MeetupList = styled.ul`
   margin-top: 20px;
 
+  s {
+    color: rgba(255, 0, 0, 0.6);
+  }
+
   div {
     display: flex;
     flex-direction: column;
@@ -97,6 +101,7 @@ export const Meetup = styled.button`
 
   ${props =>
     !props.past &&
+    !props.canceled &&
     `
     &:hover {
       opacity: 1;
@@ -115,13 +120,13 @@ export const Meetup = styled.button`
   }
 
   ${props =>
-    props.past &&
+    (props.past || props.canceled) &&
     css`
       opacity: 0.6;
     `}
 
   strong {
-    font-size: 18px;
+    font-size: 14px;
   }
 
   .info {

@@ -78,9 +78,9 @@ export default function Details({ match }) {
       ) : (
         <>
           <div className="main-container">
-            <h1>{meetup.title}</h1>
+            <h1>{meetup.canceled ? <s>{meetup.title}</s> : meetup.title}</h1>
 
-            {meetup.past ? null : (
+            {meetup.past || meetup.canceled ? null : (
               <aside>
                 <button
                   type="button"

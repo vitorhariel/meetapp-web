@@ -30,6 +30,10 @@ export const Container = styled.div`
       flex-direction: column;
     }
 
+    s {
+      color: red;
+    }
+
     aside {
       display: flex;
 
