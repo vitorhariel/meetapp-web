@@ -17,6 +17,10 @@ export const Container = styled.div`
 
     @media all and (max-width: 481px) {
       flex-direction: column;
+
+      h1 {
+        margin-bottom: 10px;
+      }
     }
 
     ${props =>
