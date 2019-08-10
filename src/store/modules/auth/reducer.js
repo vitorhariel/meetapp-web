@@ -17,6 +17,10 @@ export default function auth(state = INITIAL_STATE, action) {
         draft.loading = true;
         break;
       }
+      case '@auth/SIGN_UP_SUCCESS': {
+        draft.loading = false;
+        break;
+      }
       case '@auth/SIGN_IN_SUCCESS': {
         draft.loading = false;
         draft.signed = true;

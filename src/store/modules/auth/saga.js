@@ -4,7 +4,12 @@ import jwt_decode from 'jwt-decode';
 import history from '~/services/history';
 import api from '~/services/api';
 
-import { signInSuccess, signInFailure, tokenInvalid } from './actions';
+import {
+  signInSuccess,
+  signInFailure,
+  tokenInvalid,
+  signUpSuccess,
+} from './actions';
 
 export function* signUp({ payload }) {
   try {
@@ -18,6 +23,7 @@ export function* signUp({ payload }) {
 
     toast.success('Registered with success.');
     history.push('/');
+    yield put(signUpSuccess());
   } catch (err) {
     if (err.response) {
       toast.error(err.response.data.error);

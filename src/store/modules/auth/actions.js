@@ -5,6 +5,12 @@ export function signUpRequest({ name, email, password }) {
   };
 }
 
+export function signUpSuccess() {
+  return {
+    type: '@auth/SIGN_UP_SUCCESS',
+  };
+}
+
 export function signInRequest({ email, password }) {
   return {
     type: '@auth/SIGN_IN_REQUEST',
