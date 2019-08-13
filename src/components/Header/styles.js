@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.header`
   background: #fff;
   padding: 10px;
   box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
@@ -23,6 +23,12 @@ export const Content = styled.div`
       justify-content: center;
       align-items: center;
       color: #333;
+
+      strong {
+        font-family: 'Lobster', cursive;
+        font-size: 32px;
+        color: #4680ff;
+      }
 
       hr {
         margin: 0 10px;

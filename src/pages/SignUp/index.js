@@ -28,7 +28,7 @@ export default function SignUp() {
 
   return (
     <>
-      <img src={logo} alt="Meetapp" />
+      <strong>MeetApp</strong>
       <Form onSubmit={handleSubmit} schema={schema}>
         <div className="group">
           <Input type="text" name="name" placeholder="Full name" />

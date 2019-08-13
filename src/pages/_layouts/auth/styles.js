@@ -48,6 +48,7 @@ export const Content = styled.div`
     flex-direction: column;
     position: relative;
     z-index: 2;
+    margin-top: 20px;
 
     div.group {
       margin-bottom: 10px;
@@ -101,8 +102,10 @@ export const Content = styled.div`
     }
   }
 
-  img {
-    margin-bottom: 20px;
+  strong {
+    font-family: 'Lobster', cursive;
+    font-size: 32px;
+    color: #4680ff;
   }
 
   span {
