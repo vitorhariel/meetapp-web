@@ -20,7 +20,7 @@ export default function Dashboard() {
 
       const data = response.data.map(meetup => ({
         ...meetup,
-        formattedDate: format(parseISO(meetup.date), "MM/dd/yyyy' -' HH'h'MM"),
+        formattedDate: format(parseISO(meetup.date), "MM/dd/yyyy' -' HH'h'mm"),
       }));
 
       setMeetups(data);

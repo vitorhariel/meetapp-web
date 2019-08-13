@@ -33,7 +33,7 @@ export default function Details({ match }) {
         url: response.data.banner ? response.data.banner.url : banner,
         formattedDate: format(
           parseISO(response.data.date),
-          "MM/dd/yyyy' -' HH'h'MM"
+          "MM/dd/yyyy' -' HH'h'mm"
         ),
       };
 
