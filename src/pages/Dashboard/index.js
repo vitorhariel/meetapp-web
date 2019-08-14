@@ -96,9 +96,13 @@ export default function Dashboard() {
               <div>
                 <img src={blank} alt="Blank" draggable="false" />
                 <strong>
-                  {page > 1 ? "You don't have any meetup" : 'End of the line'}
+                  {page === 1
+                    ? "You don't have any meetup"
+                    : 'End of the line...'}
                 </strong>
-                <p>Why don&apos;t you create one?</p>
+                {page === 1
+                  ? "Why don't you create one?"
+                  : "There isn't anything else to see here."}
               </div>
             )}
           </MeetupList>
