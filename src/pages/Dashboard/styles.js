@@ -10,7 +10,7 @@ export const Container = styled.div`
 
   color: #333;
 
-  div {
+  div.top-meetups {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -70,6 +70,7 @@ export const MeetupList = styled.ul`
   div {
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     img {
       margin: 20px;
@@ -157,5 +158,16 @@ export const Meetup = styled.button`
     .info {
       margin-top: 10px;
     }
+  }
+`;
+
+export const PageIndicator = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+
+  span {
+    font-size: 20px;
   }
 `;

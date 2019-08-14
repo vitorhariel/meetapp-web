@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { format, parseISO } from 'date-fns';
 import Loader from 'react-loader-spinner';
+import {
+  MdAddCircleOutline,
+  MdDateRange,
+  MdLocationOn,
+  MdChevronLeft,
+  MdChevronRight,
+} from 'react-icons/md';
 
-import { MdAddCircleOutline, MdDateRange, MdLocationOn } from 'react-icons/md';
-import { Container, MeetupList, Meetup } from './styles';
+import { Container, MeetupList, Meetup, PageIndicator } from './styles';
 
 import api from '~/services/api';
 import history from '~/services/history';
@@ -14,9 +20,15 @@ export default function Dashboard() {
   const [meetups, setMeetups] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const [page, setPage] = useState(1);
+
   useEffect(() => {
     async function loadMeetups() {
-      const response = await api.get('organizing');
+      const response = await api.get('organizing', {
+        params: {
+          page,
+        },
+      });
 
       const data = response.data.map(meetup => ({
         ...meetup,
@@ -28,7 +40,11 @@ export default function Dashboard() {
     }
 
     loadMeetups();
-  }, []);
+  }, [page]);
+
+  function handlePage(amount) {
+    setPage(page + amount);
+  }
 
   return (
     <Container loading={loading ? 1 : 0}>
@@ -36,7 +52,7 @@ export default function Dashboard() {
         <Loader type="TailSpin" color="#f94d6a" height={90} width={90} />
       ) : (
         <>
-          <div>
+          <div className="top-meetups">
             <h1>My meetups</h1>
             <button
               className="main"
@@ -79,11 +95,22 @@ export default function Dashboard() {
             ) : (
               <div>
                 <img src={blank} alt="Blank" draggable="false" />
-                <strong>You don&apos;t have any meetup</strong>
+                <strong>
+                  {page > 1 ? "You don't have any meetup" : 'End of the line'}
+                </strong>
                 <p>Why don&apos;t you create one?</p>
               </div>
             )}
           </MeetupList>
+          <PageIndicator>
+            {page > 1 ? (
+              <MdChevronLeft size={32} onClick={() => handlePage(-1)} />
+            ) : null}
+            <span>{page}</span>
+            {page > 1 && meetups.length === 0 ? null : (
+              <MdChevronRight size={32} onClick={() => handlePage(1)} />
+            )}
+          </PageIndicator>
         </>
       )}
     </Container>

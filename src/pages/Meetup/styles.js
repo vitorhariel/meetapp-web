@@ -35,7 +35,14 @@ export const Container = styled.div`
     }
 
     s {
-      color: red;
+      color: #333;
+    }
+
+    span {
+      padding: 5px;
+      border-radius: 4px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.2);
     }
 
     aside {

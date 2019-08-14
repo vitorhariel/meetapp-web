@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
-import logo from '~/assets/logo.png';
-
 import history from '~/services/history';
 
 import { signInRequest } from '~/store/modules/auth/actions';

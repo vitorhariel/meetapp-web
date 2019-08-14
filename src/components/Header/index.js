@@ -5,8 +5,6 @@ import { MdArrowDropDown } from 'react-icons/md';
 
 import { Container, Content } from './styles';
 
-import logo from '~/assets/logo.png';
-
 import { signOut } from '~/store/modules/auth/actions';
 
 export default function Header() {

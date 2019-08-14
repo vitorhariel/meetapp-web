@@ -78,7 +78,16 @@ export default function Details({ match }) {
       ) : (
         <>
           <div className="main-container">
-            <h1>{meetup.canceled ? <s>{meetup.title}</s> : meetup.title}</h1>
+            {meetup.canceled ? (
+              <>
+                <h1>
+                  <s>{meetup.title}</s>
+                </h1>
+                <span>CANCELED</span>
+              </>
+            ) : (
+              <h1>{meetup.title}</h1>
+            )}
 
             {meetup.past || meetup.canceled ? null : (
               <aside>
