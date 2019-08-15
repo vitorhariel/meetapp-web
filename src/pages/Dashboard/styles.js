@@ -10,6 +10,14 @@ export const Container = styled.div`
 
   color: #333;
 
+  div.loading {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 200px;
+    margin: auto;
+  }
+
   div.top-meetups {
     display: flex;
     align-items: center;
@@ -22,16 +30,6 @@ export const Container = styled.div`
         margin-bottom: 10px;
       }
     }
-
-    ${props =>
-      props.loading &&
-      css`
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        height: 200px;
-        margin: auto;
-      `}
   }
   .main {
     display: flex;

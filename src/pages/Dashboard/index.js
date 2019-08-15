@@ -49,7 +49,9 @@ export default function Dashboard() {
   return (
     <Container loading={loading ? 1 : 0}>
       {loading ? (
-        <Loader type="TailSpin" color="#f94d6a" height={90} width={90} />
+        <div className="loading">
+          <Loader type="TailSpin" color="#f94d6a" height={90} width={90} />
+        </div>
       ) : (
         <>
           <div className="top-meetups">
